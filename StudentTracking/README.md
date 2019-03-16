@@ -1,5 +1,8 @@
 It is a web based student tracking system.This is a training program for certain age ranges.
 In the training process,assignments are given according to the success of the students and reports are prepared by the instructor.
+What students learn from the course can be understood by these reports.The aducation of the students is also supervised by the parents.
+The administrator manages this sytem.Creare lessons according to the abilities of the instructors and provides control in the system.
+Thus,an effective course is provided for students who want to attend classes.
 
 Framework ->Django
 
