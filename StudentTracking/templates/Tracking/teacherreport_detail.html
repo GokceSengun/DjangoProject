@@ -1,0 +1,29 @@
+{% extends "Tracking/base.html" %}
+{% block content %}
+
+    <div class="card mb-3">
+        <h3 class="card-header text-center">{{ object.reportID }}</h3>
+        <img style=" width: 40%; display: block;"
+             src="https://www.education.gov.au/sites/education/files/images/inline/activity_level_test.jpg"
+             alt="Card image">
+
+        <div class="card-body">
+            <p class="card-text"></p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Report Name:</strong> {{ object.reportID }}</li>
+            <li class="list-group-item"><strong>Report Written by:</strong> {{ object.userID }}</li>
+            <li class="list-group-item"><strong>Student Name:</strong> {{ object.asgactID }}</li>
+            <li class="list-group-item"><strong>Stage:</strong> {{ object.stage }}</li>
+            <li class="list-group-item"><strong>Content:</strong> {{ object.content }}</li>
+            <li class="list-group-item"><strong>Exam Result:</strong> {{ object.examResultID}}</li>
+
+
+        </ul>
+        <div class="card-body">
+            <a class="btn btn-secondary btn-sm mt-1 mb-1"
+               href="{% url 'teacher-report-update' object.id %}">Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'teacher-report-delete' object.id %}">Delete</a>
+        </div>
+    </div>
+{% endblock content%}

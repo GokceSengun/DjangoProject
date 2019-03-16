@@ -1,0 +1,26 @@
+{% extends "Tracking/base.html" %}
+{% block content %}
+
+    <div class="card mb-3">
+        <h3 class="card-header text-center">{{ object.homeworkName }}</h3>
+        <img style=" width: 40%; display: block;"
+             src="https://www.education.gov.au/sites/education/files/images/inline/activity_level_test.jpg"
+             alt="Card image">
+
+        <div class="card-body">
+            <p class="card-text"></p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Homework:</strong> {{ object.homeworkName }}</li>
+            <li class="list-group-item"><strong>Given Date:</strong> {{ object.givenDate }}</li>
+            <li class="list-group-item"><strong>Due Date:</strong> {{ object.dueDate }}</li>
+            <li class="list-group-item"><strong>Activity and Student:</strong> {{ object.assActToStuID }}</li>
+        </ul>
+        <div class="card-body">
+            <a class="btn btn-secondary btn-sm mt-1 mb-1"
+               href="{% url 'homework-update' object.id %}">Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'homework-delete' object.id %}">Delete</a>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,108 @@
+{% extends "Tracking/base.html" %}
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="displa y-5">Hello, {{ current_user.username }}!</h1>
+        <p class="lead"><strong>Role:</strong> Teacher</p>
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Order</th>
+            <th scope="col">Activity Name</th>
+            <th scope="col">Activity Type</th>
+            <th scope="col">Activity Time</th>
+            <th scope="col">ClassifyByAge</th>
+            <th scope="col">ClassifyByStage</th>
+            <th scope="col">Price</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+
+        <h3 class="text-center"> Activities</h3>
+        {% for activity in activities %}
+            <tr class="table-success">
+                <th scope="row">{{ activity.id }}</th>
+                <td><a class="article-title btn btn-outline-success"
+                       href="{% url 'activity-detail' activity.id %}">{{ activity.activityName }}</a></td>
+                <td><a class="article-title">{{ activity.activityType }}</a></td>
+                <td><a class="article-title">{{ activity.activityTime }}</a></td>
+                <td><a class="article-title">{{ activity.classifyAge }}</a></td>
+                <td><a class="article-title">{{ activity.classifyStage }}</a></td>
+                <td><a class="article-title">{{ activity.price }}</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p class="lead text-center">Click to see table statistics!
+        <a class="btn btn-primary btn-lg" href="{% url 'statistics-activity' %}" role="button">Stats of Activity</a> </p>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Activity Name</th>
+            <th scope="col">Student Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <h3 class="text-center"> Assign Activities to Student</h3>
+        {% for asgact in asgacts %}
+            <tr class="table-success">
+                <th scope="row">{{ asgact.id }}</th>
+                <td><a class="article-article-title btn btn-outline-success"
+                       href="{% url 'assign-activity-detail' asgact.id %}">{{ asgact.activityID }}</a></td>
+                <td><a class="article-title"
+                       href="{% url 'assign-activity-detail' asgact.id %}">{{ asgact.studentID }}</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <p class="lead text-center">Click to see table statistics!
+        <a class="btn btn-primary btn-lg" href="{% url 'statistics-student' %}" role="button">Stats of Student</a> </p>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Order</th>
+            <th scope="col">Student Name</th>
+            <th scope="col">Student Surname</th>
+            <th scope="col">Birth Date</th>
+            <th scope="col">School</th>
+            <th scope="col">Book Name</th>
+            <th scope="col">Parent Name</th>
+            <th scope="col">Activity Name</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <h3 class="text-center"> Students</h3>
+        {% for student in students %}
+            <tr class="table-success">
+                <th scope="row">{{ student.id }}</th>
+                <td><a class="article-title btn btn-outline-success"
+                       href="{% url 'student-detail' student.id %}">{{ student.studentName }}</a></td>
+                <td><a class="article-title">{{ student.studentSurname }}</a></td>
+                <td><a class="article-title">{{ student.studentDateOfBirth }}</a></td>
+                <td><a class="article-title">{{ student.schoolID }}</a></td>
+                <td><a class="article-title">{{ student.bookID }}</a></td>
+                <td><a class="article-title">{{ student.parentID }}</a></td>
+                <td>
+                    {% for key,value in studentDict.items %}
+                        {% if key == student.pk %}
+                            {% for actName in value %}
+                                <a class="article-title">{{ actName }}</a>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}
+
+

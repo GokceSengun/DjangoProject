@@ -1,0 +1,29 @@
+{% extends "Tracking/base.html" %}
+{% block content %}
+
+    <div class="card mb-3">
+        <h3 class="card-header text-center">{{ object.studentName }} {{ object.studentSurname }}</h3>
+        <img style=" width: 40%; display: block;"
+             src="https://www.education.gov.au/sites/education/files/images/inline/activity_level_test.jpg"
+             alt="Card image">
+
+        <div class="card-body">
+            <p class="card-text"></p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Student Name:</strong> {{ object.studentName }}</li>
+            <li class="list-group-item"><strong>Student Surname:</strong> {{ object.studentSurname }}</li>
+            <li class="list-group-item"><strong>Birth Date:</strong> {{ object.studentDateOfBirth }}</li>
+            <li class="list-group-item"><strong>School:</strong> {{ object.schoolID }}</li>
+            <li class="list-group-item"><strong>Book Name:</strong> {{ object.bookID}}</li>
+            <li class="list-group-item"><strong>Parent Name:</strong> {{ object.parentID}}</li>
+            <li class="list-group-item"><strong>Activity Name:</strong> {{ activityNameString }}</li>
+        </ul>
+        <div class="card-body">
+            <a class="btn btn-secondary btn-sm mt-1 mb-1"
+               href="{% url 'student-update' object.id %}">Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'student-delete' object.id %}">Delete</a>
+        </div>
+    </div>
+
+{% endblock content %}

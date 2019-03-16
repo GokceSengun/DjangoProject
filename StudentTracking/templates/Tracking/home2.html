@@ -1,0 +1,103 @@
+{% extends "Tracking/base.html" %}
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="displa y-5">Hello, {{ current_user.username }}!</h1>
+        <p class="lead"><strong>Role:</strong> Teacher</p>
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Order</th>
+            <th scope="col">Student Names</th>
+            <th scope="col">Report Type</th>
+            <th scope="col">Stage</th>
+            <th scope="col">Content</th>
+            <th scope="col">Report Name</th>
+            <th scope="col">Teacher name</th>
+            <th scope="col">Exam Result</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+
+        <h3 class="text-center"> My Reports </h3>
+        {% for report in reports %}
+            <tr class="table-success">
+                <th scope="row">{{ report.id }}</th>
+                <td><a class="article-title btn btn-outline-success"
+                       href="{% url 'teacher-report-detail' report.id %}">{{ report.reportID }}</a></td>
+                <td><a class="article-title">{{ report.studentID}}</a></td>
+                <td><a class="article-title">{{ report.stage }}</a></td>
+                <td><a class="article-title">{{ report.content }}</a></td>
+                <td><a class="article-title">{{ report.reportID }}</a></td>
+                <td><a class="article-title">{{ report.userID }}</a></td>
+                <td><a class="article-title">{{ report.examResultID }}</a></td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Order</th>
+            <th scope="col">Homework</th>
+            <th scope="col">Given Date</th>
+            <th scope="col">Due Date</th>
+            <th scope="col">Activity and Student</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+
+        <h3 class="text-center"> Homeworks </h3>
+        {% for homework in homeworks %}
+            <tr class="table-success">
+                <th scope="row">{{ homework.id }}</th>
+                <td><a class="article-title btn btn-outline-success"
+                       href="{% url 'homework-detail' homework.id %}">{{homework.homeworkName }}</a></td>
+                <td><a class="article-title">{{ homework.givenDate}}</a></td>
+                <td><a class="article-title">{{ homework.dueDate }}</a></td>
+                <td><a class="article-title">{{ homework.assActToStuID }}</a></td>
+
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Order</th>
+            <th scope="col">Class</th>
+            <th scope="col">Start Time</th>
+            <th scope="col">End Time</th>
+            <th scope="col">Activity</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+
+        <h3 class="text-center"> Class Hours </h3>
+        {% for classhour in classhours %}
+            <tr class="table-success">
+                <th scope="row">{{ classhour.id }}</th>
+                <td><a class="article-title btn btn-outline-success"
+                       href="{% url 'classhours-detail' classhour.id %}">{{classhour.classID }}</a></td>
+                <td><a class="article-title">{{ classhour.starTime}}</a></td>
+                <td><a class="article-title">{{ classhour.endTime }}</a></td>
+                <td><a class="article-title">{{ classhour.activityID }}</a></td>
+
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}
+

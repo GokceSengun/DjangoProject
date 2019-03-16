@@ -1,0 +1,47 @@
+{% extends "Tracking/base.html" %}
+{% block content %}
+    <h3 class="text-center"> Count of activities group by Activity Name</h3>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Activity Name</th>
+            <th scope="col">Count</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for activitycount in activitycounts %}
+            <tr class="table-success">
+                {% for key,value in activitycount.items %}
+                    <td><a class="article-title">{{ value }}</a></td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h3 class="text-center"> Count of students group by Student Name</h3>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Student Name</th>
+            <th scope="col">Count</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for studentcount in studentcounts %}
+
+            <tr class="table-success">
+                {% for stcnt in studentcount %}
+                    <td><a class="article-title">{{ stcnt }}</a></td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}
+
+
+
+

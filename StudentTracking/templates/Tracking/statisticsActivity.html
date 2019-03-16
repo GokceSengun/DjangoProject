@@ -1,0 +1,67 @@
+{% extends "Tracking/base.html" %}
+{% block content %}
+    <h3 class="text-center"> Count of activities group by Activity Name</h3>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Activity Name</th>
+            <th scope="col">Count</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for activitycount in activitycounts %}
+            <tr class="table-success">
+                {% for key,value in activitycount.items %}
+                    <td><a class="article-title">{{ value }}</a></td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h3 class="text-center"> Sum of Prices</h3>
+    <table class="table table-hover">
+        <tbody>
+        <tr class="table-success">
+            {% for key,value in total_paid.items %}
+
+                <td><a class="article-title">Sum of price </a></td>
+                <td><a class="article-title">{{ value }}</a></td>
+
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+    <h3 class="text-center"> Average of Prices</h3>
+    <table class="table table-hover">
+        <tbody>
+        <tr class="table-success">
+            {% for key,value in avgprices.items %}
+
+                <td><a class="article-title">Avg price </a></td>
+                <td><a class="article-title">{{ value }}</a></td>
+
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+
+    <h3 class="text-center"> Max Price</h3>
+    <table class="table table-hover">
+        <tbody>
+        <tr class="table-success">
+            {% for key,value in maxprices.items %}
+
+                <td><a class="article-title">Max price </a></td>
+                <td><a class="article-title">{{ value }}</a></td>
+
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+
+{% endblock content %}
+
+
+
+
