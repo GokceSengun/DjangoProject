@@ -1,3 +1,6 @@
+It is a web based student tracking system.This is a training program for certain age ranges.
+In the training process,assignments are given according to the success of the students and reports are prepared by the instructor.
+
 Framework ->Django
 
 Database ->MySQL
