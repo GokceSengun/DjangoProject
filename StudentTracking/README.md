@@ -4,16 +4,25 @@ Database ->MySQL
 
 -------------------Environment------------------------------------------
 
-Python Packages:		    version:
-Django				    2.1.5
-django-bootstrap-datepicker-plus    3.0.5
-django-crispy-form                  1.7.2
-django-extra-views		    0.12.0
-mysqlclient 	                    1.3.14		
-pip				    10.0.1
-pytz				    2018.9
-setuptools			    39.1.0
-six				    1.12.0
+Python Packages:
+
+Django(2.1.5)
+
+django-bootstrap-datepicker-plus(3.0.5)
+
+django-crispy-form (1.7.2)
+
+django-extra-views (0.12.0)
+
+mysqlclient (1.3.14)
+
+pip	(10.0.1)
+
+pytz(2018.9)
+
+setuptools	(39.1.0)
+
+six	(1.12.0)
 
 -----------------------Stored Procedure----------------------------------
 
