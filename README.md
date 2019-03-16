@@ -1,7 +1,9 @@
-FRAMEWORK-> Django
-DATABASE->MySQL
+------------------Framework-------------------------------------------
+
+Django
 
 -------------------Environment------------------------------------------
+
 Python Packages:		    version:
 Django				    2.1.5
 django-bootstrap-datepicker-plus    3.0.5
@@ -12,9 +14,18 @@ pip				    10.0.1
 pytz				    2018.9
 setuptools			    39.1.0
 six				    1.12.0
+
+-----------------------Database------------------------------------------
+
+MySQL
+
+
 -----------------------Stored Procedure----------------------------------
+
 Stored Procedure = StudentCounybyID
+
 --------------------Code-------------------------------------------------
+
  cursor = connection.cursor()
     try:
         cursor.callproc('StudentCountbyID')
